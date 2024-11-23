@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title if title else "크리스마스 편지 게시판" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1>🎄 메리 크리스마스 편지 게시판 🎅</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">🎁 홈</a> |
+            <a href="{{ url_for('write') }}">✉️ 편지 쓰기</a>
+        </nav>
+    </header>
+    <main>
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="footer">
+        <p>🎄 행복한 크리스마스 보내세요! © 2024 크리스마스 편지 게시판</p>
+    </footer>
+</body>
+</html>

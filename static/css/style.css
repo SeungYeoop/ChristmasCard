@@ -1,0 +1,355 @@
+/* 전역 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    background: url('/static/images/elegant-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* 페이드 인 애니메이션 */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* 헤더 */
+header {
+    background: rgba(0, 0, 0, 0.9); /* 더 어두운 배경 */
+    color: #fff;
+    padding: 4em 0;
+    text-align: center;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.7);
+    border-bottom: 6px solid #ffdf00;
+    transition: background-color 0.3s ease; /* 헤더 반응형 */
+}
+
+header h1 {
+    font-size: 4em; /* 글씨 크기 증가 */
+    color: #ffdf00;
+    margin: 0;
+    text-transform: uppercase;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* 헤더 내비게이션 링크 */
+header nav a {
+    color: #fff;
+    font-size: 1.3em;
+    margin: 0 2em;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, transform 0.3s ease, text-decoration 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ffdf00;
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+/* 메인 영역 */
+main {
+    max-width: 1200px;
+    margin: 5em auto;
+    background: rgba(0, 0, 0, 0.8); /* 반투명한 배경 */
+    padding: 3em;
+    border-radius: 15px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
+    animation: fadeUp 1s ease-in-out;
+}
+
+/* 업 애니메이션 */
+@keyframes fadeUp {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* 편지 목록 */
+
+
+.letter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 기본적으로 2줄 */
+    gap: 20px; /* 항목 간 간격 */
+    transition: grid-template-columns 0.3s ease;
+}
+@media screen and (min-width: 600px) {
+    .letter-list {
+        grid-template-columns: repeat(2, 1fr); /* 화면이 600px 이상이면 2줄 */
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .letter-list {
+        grid-template-columns: repeat(3, 1fr); /* 화면이 900px 이상이면 3줄 */
+    }
+}
+
+
+.letter-item {
+    margin-bottom: 3em;
+    padding: 3em; /* 패딩 증가 */
+    background: rgba(255, 255, 255, 0.15); /* 부드러운 반투명 배경 */
+    border-radius: 20px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideInUp 0.6s ease-out;
+}
+@keyframes slideInUp {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.letter-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 70px rgba(0, 0, 0, 0.7); /* 더 강한 그림자 */
+}
+
+.letter-item strong {
+    font-size: 1.5em;
+    color: #ffdf00;
+    display: block;
+    margin-bottom: 1.5em;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.letter-item p {
+    font-size: 1.3em;
+    color: #f5f5f5;
+    line-height: 1.8;
+    margin-bottom: 2em;
+}
+
+/* 편지 이미지 */
+.letter-image {
+    margin-top: 2em;
+    text-align: center;
+    animation: fadeInImage 0.7s ease-in-out;
+}
+
+@keyframes fadeInImage {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.letter-image img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.letter-image img:hover {
+    transform: scale(1.05);
+}
+
+/* 편지 작성 폼 */
+.letter-form {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5em; /* 폼 크기 더욱 증가 */
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    margin-bottom: 4em;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.letter-form label {
+    display: block;
+    font-weight: 700;
+    margin-top: 1.5em;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.letter-form input,
+.letter-form textarea {
+    width: 100%;
+    padding: 1.5em;
+    margin-top: 0.6em;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 12px;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+    resize: vertical;
+}
+
+.letter-form input:focus,
+.letter-form textarea:focus {
+    outline: none;
+    border: 3px solid #ffdf00;
+}
+
+.letter-form button {
+    padding: 1.6em 4em;
+    margin-top: 2.5em;
+    border: none;
+    background: #ff8000;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.letter-form button:hover {
+    background: #cc6600;
+    transform: translateY(-5px);
+}
+
+/* 플래시 메시지 */
+.flash-messages {
+    list-style: none;
+    margin: 0;
+    padding: 2em;
+    background: rgba(255, 0, 0, 0.7);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.3em;
+    color: #fff;
+}
+
+.flash-messages li {
+    margin: 1.5em 0;
+}
+
+/* 푸터 */
+.footer {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    text-align: center;
+    padding: 3em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.6);
+    animation: slideInFooter 1s ease-in-out;
+}
+
+@keyframes slideInFooter {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.footer p {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #ffdf00;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 3em;
+    }
+
+    header nav a {
+        font-size: 1.2em;
+    }
+
+    .letter-item {
+        margin-bottom: 2em;
+        padding: 2em;
+    }
+
+    .letter-item strong {
+        font-size: 1.4em;
+    }
+
+    .letter-item p {
+        font-size: 1.2em;
+    }
+
+    .letter-form input,
+    .letter-form textarea {
+        font-size: 1.2em;
+    }
+
+    .letter-form button {
+        font-size: 1.3em;
+        padding: 1.4em 3.5em;
+    }
+
+    .footer p {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header nav a {
+        font-size: 1.1em;
+    }
+
+    .letter-item {
+        padding: 1.5em;
+    }
+
+    .letter-item strong {
+        font-size: 1.2em;
+    }
+
+    .letter-item p {
+        font-size: 1.1em;
+    }
+
+    .letter-form input,
+    .letter-form textarea {
+        font-size: 1.1em;
+    }
+
+    .letter-form button {
+        font-size: 1.2em;
+        padding: 1.2em 3em;
+    }
+
+    .footer p {
+        font-size: 1em;
+    }
+}
+
+/* 레이아웃 전환 버튼 스타일 */
+.layout-controls {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.layout-btn {
+    padding: 1em 2em;
+    margin: 0 1em;
+    font-size: 1.2em;
+    background-color: #ffdf00;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.layout-btn:hover {
+    background-color: #e0c300;
+}
+

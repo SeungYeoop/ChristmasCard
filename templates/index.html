@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>🎁 편지 목록 🎁</h2>
+<ul class="letter-list">
+    {% for letter in letters %}
+    <li class="letter-item">
+        <strong>🎅 {{ letter.name }}</strong> ({{ letter.date }}): 
+        <p>📜 {{ letter.message }}</p>
+        {% if letter.image %}
+        <div class="letter-image">
+            <img src="{{ url_for('static', filename='uploads/' + letter.image) }}" alt="이미지">
+        </div>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>🎄 새로운 편지 쓰기 🎄</h2>
+<form action="{{ url_for('write') }}" method="post" enctype="multipart/form-data" class="letter-form">
+    <label for="name">🎅 작성자 이름:</label>
+    <input type="text" id="name" name="name" required placeholder="이름을 입력하세요">
+    
+    <label for="message">📜 편지 내용:</label>
+    <textarea id="message" name="message" required placeholder="편지를 작성하세요..."></textarea>
+    
+    <label for="image">📸 이미지 첨부 (선택):</label>
+    <input type="file" id="image" name="image" accept="image/*">
+    
+    <button type="submit">🎁 편지 보내기</button>
+</form>
+{% endblock %}
