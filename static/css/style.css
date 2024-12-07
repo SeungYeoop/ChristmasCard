@@ -105,15 +105,47 @@ main h2 {
     }
 }
 
+/* 편지 아이템 스타일 */
 .letter-item {
     margin-bottom: 3em;
-    padding: 2em;
+    padding: 1em; /* 여백을 1em으로 줄임 */
+    padding-bottom: 0em;
     background: rgba(255, 255, 255, 0.15);
-    border-radius: 15px;
+    border-radius: 10px;
     box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: slideInUp 0.6s ease-out;
 }
+
+/* 편지 내용 영역 */
+.letter-item p {
+    font-size: 1.3em;
+    color: #f5f5f5;
+    line-height: 1.8;
+    margin-bottom: 2em;
+    max-height: 150px; /* 편지 내용 최대 높이 설정 */
+    overflow-y: auto; /* 세로 스크롤 활성화 */
+    text-overflow: ellipsis; /* 넘치면 생략 부호(...) 추가 */
+    padding-right: 10px; /* 오른쪽 여백을 추가하여 스크롤이 안에 들어가도록 */
+}
+
+/* 편지 내용에서 스크롤바 스타일링 */
+.letter-item p::-webkit-scrollbar {
+    width: 8px; /* 스크롤바 너비 */
+}
+
+.letter-item p::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5); /* 스크롤바 색상 */
+    border-radius: 10px;
+}
+
+.letter-item p::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2); /* 스크롤바 배경 */
+    border-radius: 10px;
+}
+
+
+
 
 @keyframes slideInUp {
     0% { transform: translateY(50px); opacity: 0; }
@@ -164,8 +196,19 @@ main h2 {
     margin-bottom: 0.5em;
 }
 
-.letter-form input,
+.letter-form input{
+    height: 100%;
+    width: 100%; /* 가로 너비를 100%로 */
+    padding: 0.8em;
+    font-size: 0.9em;
+    border: none;
+    border-radius: 6px;
+    background: #fff;
+    color: #333;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
 .letter-form textarea {
+    height: 100px;
     width: 100%; /* 가로 너비를 100%로 */
     padding: 0.8em;
     font-size: 0.9em;
@@ -177,6 +220,7 @@ main h2 {
 }
 
 .letter-form input[type="file"] {
+    height: 100%;
     padding: 0.6em;
     font-size: 0.8em;
     background: #fff;
@@ -309,3 +353,4 @@ main h2 {
         font-size: 1em;
     }
 }
+
