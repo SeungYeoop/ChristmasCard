@@ -16,3 +16,5 @@ function changeRows() {
         letterList.classList.add('four-rows');
     }
 }
+
+
