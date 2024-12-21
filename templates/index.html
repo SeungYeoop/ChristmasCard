@@ -3,9 +3,10 @@
 <h2>🎁 편지 목록 🎁</h2>
 <ul class="letter-list">
     {% for letter in letters %}
-    <li class="letter-item">
-        <strong>from {{ letter.name }}</strong> ({{ letter.date }}): 
-        <p class="letter-message">
+    <li id="letter-{{ letter.id }}" class="letter-item">
+        <strong> {{ letter.name }} </strong>
+        <span class="letter-date">({{ letter.date }})</span> 
+        <p class="letter-message" id="message-{{ letter.id }}">
             {{ letter.message }}
         </p>
 
@@ -14,6 +15,7 @@
             <img src="{{ url_for('static', filename='uploads/' + letter.image) }}" alt="이미지">
         </div>
         {% endif %}
+
     </li>
     {% endfor %}
 </ul>

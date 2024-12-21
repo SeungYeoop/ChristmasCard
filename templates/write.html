@@ -3,7 +3,7 @@
 <h2>🎄 새로운 편지 쓰기 🎄</h2>
 <form action="{{ url_for('write') }}" method="post" enctype="multipart/form-data" class="letter-form">
     <label for="name">🎅 작성자 이름:</label>
-    <input type="text" id="name" name="name" required placeholder="이름을 입력하세요">
+    <input type="text" id="name" name="name" required placeholder="이름을 입력하세요" maxlength="10">
     
     <label for="message">📜 편지 내용:</label>
     <textarea id="message" name="message" required placeholder="편지를 작성하세요..."></textarea>

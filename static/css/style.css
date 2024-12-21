@@ -63,7 +63,7 @@ header nav a:hover {
 
 /* 메인 영역 */
 main {
-    max-width: 1200px;
+    max-width: auto;
     margin: 5em auto;
     background: rgba(0, 0, 0, 0.8);
     padding: 3em;
@@ -86,7 +86,7 @@ main h2 {
 .letter-list {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 1em;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
@@ -105,17 +105,46 @@ main h2 {
     }
 }
 
+@media screen and (min-width: 1200px) {
+    .letter-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .letter-list {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
 /* 편지 아이템 스타일 */
 .letter-item {
-    margin-bottom: 3em;
-    padding: 1em; /* 여백을 1em으로 줄임 */
-    padding-bottom: 0em;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 10px;
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: slideInUp 0.6s ease-out;
+    margin-bottom: 1em;
+    padding: 1.2em;
+    background: linear-gradient(145deg, #2b2b2b, #1a1a1a); /* 그라데이션 배경 */
+    border-radius: 20px;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5), 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* 스크롤 추가된 내용 밖으로 넘침 제거 */
+    color: #fff; /* 텍스트 색상 */
+
+    
 }
+
+.letter-item strong {
+    font-size: 1.6em;
+    color: #ffdf00;
+    display: block;
+    margin-bottom: 0.1em; /* 이름과 날짜 사이 간격 줄이기 */
+    text-transform: uppercase;
+}
+
+.letter-date {
+    font-size: 13px;
+    color: #bbb; /* 날짜를 부드러운 색상으로 */
+    display: block; /* 이름 아래로 위치 */
+    margin-bottom: 1em; /* 날짜와 메시지 간격 */
+}
+
 
 /* 편지 내용 영역 */
 .letter-item p {
@@ -144,7 +173,26 @@ main h2 {
     border-radius: 10px;
 }
 
+.letter-item img {
+    margin-bottom: 1em;
+    max-width: 100%;
+    max-height: 200px;
+}
 
+.delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 0.9em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #ff1a1a;
+}
 
 
 @keyframes slideInUp {
@@ -157,24 +205,17 @@ main h2 {
     box-shadow: 0 15px 70px rgba(0, 0, 0, 0.7);
 }
 
-.letter-item strong {
-    font-size: 1.5em;
-    color: #ffdf00;
-    display: block;
-    margin-bottom: 1.5em;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-
 .letter-item p {
     font-size: 1.3em;
     color: #f5f5f5;
     line-height: 1.8;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+    font-size: 15px;
 }
 
 /* 편지 작성 폼 */
 .letter-form {
+
     display: flex;
     flex-direction: column; /* 세로 정렬 */
     gap: 1em;
@@ -187,6 +228,7 @@ main h2 {
     max-width: 700px; /* 최대 너비 제한 */
     margin-left: auto;
     margin-right: auto; /* 가운데 정렬 */
+    
 }
 
 .letter-form label {

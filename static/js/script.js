@@ -1,3 +1,31 @@
+function deleteLetter(id) {
+    if (confirm("정말로 이 편지를 삭제하시겠습니까?")) {
+        // Fetch로 DELETE 요청 보내기
+        fetch(`/delete/${id}`, {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("편지가 삭제되었습니다!");
+
+                // 삭제된 편지를 DOM에서 즉시 제거
+                const letterItem = document.getElementById(`letter-${id}`);
+                if (letterItem) {
+                    letterItem.remove(); // DOM에서 해당 편지 항목 제거
+                }
+            } else {
+                alert("편지를 삭제하는데 문제가 발생했습니다.");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("오류가 발생했습니다. 다시 시도해주세요.");
+        });
+    }
+}
+
+
+
 function changeRows() {
     const letterList = document.querySelector('.letter-list');
     const selectedRows = document.getElementById('rows').value;
@@ -37,3 +65,4 @@ function toggleMore(index) {
         moreBtn.innerText = '닫기';
     }
 }
+
