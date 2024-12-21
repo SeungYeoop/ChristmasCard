@@ -9,7 +9,6 @@
         <p class="letter-message" id="message-{{ letter.id }}">
             {{ letter.message }}
         </p>
-
         {% if letter.image %}
         <div class="letter-image">
             <img src="{{ url_for('static', filename='uploads/' + letter.image) }}" alt="이미지">

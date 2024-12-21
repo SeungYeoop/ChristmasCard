@@ -156,6 +156,9 @@ main h2 {
     overflow-y: auto; /* 세로 스크롤 활성화 */
     text-overflow: ellipsis; /* 넘치면 생략 부호(...) 추가 */
     padding-right: 10px; /* 오른쪽 여백을 추가하여 스크롤이 안에 들어가도록 */
+    white-space: pre-wrap;  /* 줄바꿈을 그대로 유지 */
+    white-space: normal;
+    word-wrap: break-word;  /* 긴 단어가 화면을 벗어나지 않도록 자동 줄바꿈 */
 }
 
 /* 편지 내용에서 스크롤바 스타일링 */
